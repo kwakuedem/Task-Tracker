@@ -189,6 +189,11 @@ nav ul li a {
     padding: 10px 0;
 }
 
+.task-actions {
+    padding-top: 10px;
+}
+
+
 .task-actions a {
     margin-right: 10px;
     text-decoration: none;
