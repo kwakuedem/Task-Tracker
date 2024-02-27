@@ -1,0 +1,18 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <!-- Add any other content or actions relevant to the user's dashboard -->
+  
+  {% if user.is_authenticated%}
+
+    <div class="counter">
+        <div class="counter-container">
+        <p>{{tasks.count}}</p>
+        </div>
+    </div>
+  {% endif %}
+
+ 
+{% endblock %}

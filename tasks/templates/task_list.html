@@ -1,12 +1,22 @@
 <!-- tasks/templates/tasks/task_list.html -->
-{% extends 'tasks/base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
-  <h2>Your Task List</h2>
-  <ul>
-    {% for task in tasks %}
-      <li>{{ task.title }} - {{ task.status }} - {{ task.deadline }}</li>
-    {% endfor %}
-  </ul>
-  <a href="{% url 'task_create' %}">Create New Task</a>
+<h2>Your Tasks</h2>
+<div class="container-create_btn">
+  <a id="btn" href="{% url 'task_create' %}">Create New Task</a>
+</div>
+
+{% for task in tasks %}
+  <div class="task-container">
+    <h3>{{ task.title }}</h3>
+    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Deadline:</strong> {{ task.deadline }}</p>
+    <div class="task-actions">
+      <a href="{% url 'edit_task' pk=task.pk %}">Edit</a>
+      <a id="delete" href="{% url 'task_delete' pk=task.pk %}">Delete</a>
+    </div>
+  </div>
+{% endfor %}
+ 
 {% endblock %}

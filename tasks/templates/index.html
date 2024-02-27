@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Task Tracking System</h2>
+    <p>This system allows you to create and manage your tasks a.</p>
+    <p>Users can register and login to perform the following tasks: .</p>
+    <ul>
+        <li class="index-list">Create tasks</li>
+        <li class="index-list">View Tasks</li>
+        <li class="index-list">Edit and Update Tasks</li>
+        <li class="index-list">Track Tasks</li>
+        <li class="index-list">Delete Tasks</li>
+    </ul>
+
+    <div class="action-buttons">
+        <a id="login" href="{% url 'user_login' %}">Login</a>
+        <a id='register' href="{% url 'user_register' %}">Register</a>
+    </div>
+{% endblock %}

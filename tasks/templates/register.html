@@ -1,12 +1,14 @@
 <!-- tasks/templates/tasks/register.html -->
-{% extends 'tasks/base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
+<div class="form">
   <h2>Register</h2>
-  <form method="post">
+  <form method="post"  action="{% url 'user_register' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Register</button>
   </form>
   <a href="{% url 'user_login' %}">Already have an account? Login here</a>
-{% endblock %}
+</div>
+  {% endblock %}

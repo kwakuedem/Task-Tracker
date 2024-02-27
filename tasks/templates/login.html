@@ -1,12 +1,14 @@
 <!-- tasks/templates/tasks/login.html -->
-{% extends 'tasks/base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
+<div class="form">
   <h2>Login</h2>
-  <form method="post">
+  <form method="post"  action="{% url 'user_login' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
-  <a href="{% url 'user_register' %}">Don't have an account? Register here</a>
-{% endblock %}
+  <a class='register_link' href="{% url 'user_register' %}">Don't have an account? Register here</a>
+</div>
+  {% endblock %}

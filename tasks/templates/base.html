@@ -1,13 +1,40 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block content %}Task Tracker{% endblock %}</title>
+    <title>{% block title %}Task-Tracker App{% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <body>
+        <div class="container">
+            <nav>
+                <ul class="menu">
+                   
+                    
+                    {% if user.is_authenticated %}
+
+                        <li><a class="active" href="{% url 'dashboard' %}">Dashboard</a></li>
+
+                        <li><a class="active" href="{% url 'task_list' %}">Tasks</a></li>
+
+                        <li><a class="active" href="{% url 'task_create' %}">Create Task</a></li>
+                   
+                        <li><a class="active" style="color:orange;" href="{% url 'user_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a class="active" href="{% url 'index' %}">Home</a></li>
+                    {% endif %}
+                  
+                </ul>
+            </nav>
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </body>
 </body>
 </html>
