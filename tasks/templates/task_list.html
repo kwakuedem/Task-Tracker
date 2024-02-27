@@ -1,0 +1,12 @@
+<!-- tasks/templates/tasks/task_list.html -->
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+  <h2>Your Task List</h2>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task.title }} - {{ task.status }} - {{ task.deadline }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'task_create' %}">Create New Task</a>
+{% endblock %}
