@@ -211,3 +211,15 @@ nav ul li a {
     padding: 10px 8px;
     border-radius: 5px;
 }
+
+.in-progress {
+    color: orange;
+}
+
+.completed {
+    color: green;
+}
+
+.pending {
+    color: red;
+}

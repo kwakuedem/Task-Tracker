@@ -10,7 +10,11 @@
 {% for task in tasks %}
   <div class="task-container">
     <h3>{{ task.title }}</h3>
-    <p><strong>Status:</strong> {{ task.status }}</p>
+    <p><strong>Status:</strong>
+      <span class="{% if task.status == 'in_progress' %}in-progress{% elif task.status == 'completed' %}completed{% else %}pending{% endif %}">
+          {{ task.status }}
+      </span>
+  </p>
     <p><strong>Deadline:</strong> {{ task.deadline }}</p>
     <div class="task-actions">
       <a href="{% url 'edit_task' pk=task.pk %}">Edit</a>
