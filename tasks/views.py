@@ -19,7 +19,7 @@ def user_login(request):
                 return redirect('task_list')
     else:
         form = AuthenticationForm()
-    return render(request, 'tasks/login.html', {'form': form})
+    return render(request, 'login.html', {'form': form})
 
 def user_logout(request):
     logout(request)
@@ -34,13 +34,13 @@ def user_register(request):
             return redirect('task_list')
     else:
         form = UserCreationForm()
-    return render(request, 'tasks/register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
 
 @login_required
 def task_list(request):
     tasks = Task.objects.filter(user=request.user)
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+    return render(request, 'task_list.html', {'tasks': tasks})
 
 @login_required
 def task_create(request):
@@ -53,7 +53,7 @@ def task_create(request):
             return redirect('task_list')
     else:
         form = TaskForm()
-    return render(request, 'tasks/task_form.html', {'form': form, 'action': 'Create'})
+    return render(request, 'task_form.html', {'form': form, 'action': 'Create'})
 
 @login_required
 def task_edit(request, pk):
@@ -65,7 +65,7 @@ def task_edit(request, pk):
             return redirect('task_list')
     else:
         form = TaskForm(instance=task)
-    return render(request, 'tasks/task_form.html', {'form': form, 'action': 'Edit'})
+    return render(request, 'task_form.html', {'form': form, 'action': 'Edit'})
 
 @login_required
 def task_delete(request, pk):
@@ -73,4 +73,4 @@ def task_delete(request, pk):
     if request.method == 'POST':
         task.delete()
         return redirect('task_list')
-    return render(request, 'tasks/task_confirm_delete.html', {'task': task})
+    return render(request, 'task_confirm_delete.html', {'task': task})
