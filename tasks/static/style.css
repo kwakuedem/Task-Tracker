@@ -136,7 +136,7 @@ nav ul li a {
 
 .action-buttons #login {
     background: rgb(16, 104, 219);
-    outline: 2px solid orange;
+    outline: 2px solid rgb(67, 171, 240);
     border-radius: 5px;
     margin-right: 10px;
     color: white;
@@ -151,11 +151,12 @@ nav ul li a {
     background: transparent;
     outline: 2px solid orange;
     margin-left: 10px;
+    color: rgb(16, 104, 219);
     border-radius: 5px;
 }
 
 .action-buttons #register:hover {
-    background: rgb(16, 104, 219);
+    background: orange;
     color: white;
 }
 
